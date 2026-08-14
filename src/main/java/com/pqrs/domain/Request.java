@@ -1,6 +1,7 @@
 package com.pqrs.domain;
 
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.UUID;
 
 public class Request {
@@ -12,16 +13,40 @@ public class Request {
     private RequestStatus status;
     private LocalDateTime createdDate;
 
-    public Request(String citizenName, String citizenDocument, String dependency, RequestStatus status, String description, LocalDateTime createdDate) {
+    private Request(UUID id, String citizenName, String citizenDocument, String dependency, RequestStatus status, String description, LocalDateTime createdDate) {
         validateData(citizenName, citizenDocument, dependency, description);
 
-        this.id = UUID.randomUUID();
+        this.id = id;
         this.citizenName = citizenName;
         this.citizenDocument = citizenDocument;
         this.dependency = dependency;
         this.status = status;
         this.description = description;
         this.createdDate = createdDate;
+    }
+
+    public static Request create(String citizenName, String citizenDocument, String dependency, RequestStatus status, String description) {
+        return new Request(
+                UUID.randomUUID(),
+                citizenName,
+                citizenDocument,
+                dependency,
+                status,
+                description,
+                LocalDateTime.now(ZoneId.systemDefault())
+        );
+    }
+
+    public static Request reconstitute(UUID id, String citizenName, String citizenDocument, String dependency, RequestStatus status, String description, LocalDateTime createdDate) {
+        return new Request(
+                id,
+                citizenName,
+                citizenDocument,
+                dependency,
+                status,
+                description,
+                createdDate
+        );
     }
 
     public UUID getId() {
