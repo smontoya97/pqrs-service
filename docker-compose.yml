@@ -1,0 +1,49 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: pqrs_db
+      MYSQL_USER: pqrs_user
+      MYSQL_PASSWORD: pqrs_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - pqrs_network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+      interval: 10s
+
+  pqrs-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pqrs-service
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/pqrs_db
+      SPRING_DATASOURCE_USERNAME: pqrs_user
+      SPRING_DATASOURCE_PASSWORD: pqrs_password
+      SECURITY_JWT_SECRET: very-secure-jwt-secret-key
+    ports:
+      - "8080:8080"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - pqrs_network
+    restart: unless-stopped
+
+volumes:
+  mysql_data:
+    driver: local
+
+networks:
+  pqrs_network:
+    driver: bridge
+
