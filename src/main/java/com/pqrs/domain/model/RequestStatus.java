@@ -1,4 +1,4 @@
-package com.pqrs.domain;
+package com.pqrs.domain.model;
 
 public enum RequestStatus {
     RECEIVED,

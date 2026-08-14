@@ -2,7 +2,7 @@ package com.pqrs.infrastructure.adapter.in.web.controller;
 
 import com.pqrs.application.port.in.CreateRequestUseCase;
 import com.pqrs.application.port.in.GetRequestsByUserDependencyUseCase;
-import com.pqrs.domain.Request;
+import com.pqrs.domain.model.Request;
 import com.pqrs.infrastructure.adapter.in.web.dto.request.CreateRequestDto;
 import com.pqrs.infrastructure.adapter.in.web.dto.response.RequestResponseDto;
 import com.pqrs.infrastructure.adapter.in.web.mapper.WebMapper;

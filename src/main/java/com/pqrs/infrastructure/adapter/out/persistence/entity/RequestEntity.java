@@ -1,6 +1,6 @@
 package com.pqrs.infrastructure.adapter.out.persistence.entity;
 
-import com.pqrs.domain.RequestStatus;
+import com.pqrs.domain.model.RequestStatus;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;

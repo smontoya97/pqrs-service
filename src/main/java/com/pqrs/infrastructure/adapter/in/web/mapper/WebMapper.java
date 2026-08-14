@@ -1,7 +1,7 @@
 package com.pqrs.infrastructure.adapter.in.web.mapper;
 
 import com.pqrs.application.command.CreateRequestCommand;
-import com.pqrs.domain.Request;
+import com.pqrs.domain.model.Request;
 import com.pqrs.infrastructure.adapter.in.web.dto.request.CreateRequestDto;
 import com.pqrs.infrastructure.adapter.in.web.dto.response.RequestResponseDto;
 

@@ -1,6 +1,6 @@
 package com.pqrs.application.port.in;
 
-import com.pqrs.domain.Request;
+import com.pqrs.domain.model.Request;
 
 import java.util.List;
 

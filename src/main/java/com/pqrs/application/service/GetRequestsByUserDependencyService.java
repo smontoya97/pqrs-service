@@ -2,7 +2,7 @@ package com.pqrs.application.service;
 
 import com.pqrs.application.port.in.GetRequestsByUserDependencyUseCase;
 import com.pqrs.application.port.out.RequestRepositoryPort;
-import com.pqrs.domain.Request;
+import com.pqrs.domain.model.Request;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

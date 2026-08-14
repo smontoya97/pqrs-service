@@ -1,7 +1,7 @@
 package com.pqrs.infrastructure.adapter.out.persistence.adapter;
 
 import com.pqrs.application.port.out.RequestRepositoryPort;
-import com.pqrs.domain.Request;
+import com.pqrs.domain.model.Request;
 import com.pqrs.infrastructure.adapter.out.persistence.entity.RequestEntity;
 import com.pqrs.infrastructure.adapter.out.persistence.jpa.RequestJpaRepository;
 import com.pqrs.infrastructure.adapter.out.persistence.mapper.RequestMapper;

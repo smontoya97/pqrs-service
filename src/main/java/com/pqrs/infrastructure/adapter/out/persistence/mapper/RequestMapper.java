@@ -1,6 +1,6 @@
 package com.pqrs.infrastructure.adapter.out.persistence.mapper;
 
-import com.pqrs.domain.Request;
+import com.pqrs.domain.model.Request;
 import com.pqrs.infrastructure.adapter.out.persistence.entity.RequestEntity;
 
 public class RequestMapper {
