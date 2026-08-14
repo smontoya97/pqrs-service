@@ -1,3 +1,20 @@
 spring:
   application:
     name: pqrs-service
+  datasource:
+    url: jdbc:mysql://mysql:3306/pqrs_db
+    username: pqrs_user
+    password: pqrs_password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
+
+security:
+  jwt:
+    secret: very-secure-jwt-secret-key
