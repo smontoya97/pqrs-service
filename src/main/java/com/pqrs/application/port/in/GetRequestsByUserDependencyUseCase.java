@@ -5,5 +5,5 @@ import com.pqrs.domain.Request;
 import java.util.List;
 
 public interface GetRequestsByUserDependencyUseCase {
-    List<Request> execute();
+    List<Request> execute(String dependency);
 }

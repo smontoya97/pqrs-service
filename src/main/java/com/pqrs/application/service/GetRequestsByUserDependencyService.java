@@ -15,7 +15,7 @@ public class GetRequestsByUserDependencyService implements GetRequestsByUserDepe
     private final RequestRepositoryPort requestRepositoryPort;
 
     @Override
-    public List<Request> execute() {
-        return List.of();
+    public List<Request> execute(String dependency) {
+        return requestRepositoryPort.getByDependency(dependency);
     }
 }

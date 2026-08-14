@@ -25,13 +25,13 @@ public class Request {
         this.createdDate = createdDate;
     }
 
-    public static Request create(String citizenName, String citizenDocument, String dependency, RequestStatus status, String description) {
+    public static Request create(String citizenName, String citizenDocument, String dependency, String description) {
         return new Request(
                 UUID.randomUUID(),
                 citizenName,
                 citizenDocument,
                 dependency,
-                status,
+                RequestStatus.RECEIVED,
                 description,
                 LocalDateTime.now(ZoneId.systemDefault())
         );
